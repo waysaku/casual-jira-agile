@@ -11,7 +11,7 @@
 (function(d) {
   var timerid = setInterval(function() {
     try {
-      var issues = document.getElementsByClassName('ghx-issue-subtask');
+      var issues = document.getElementsByClassName('ghx-issue');
       if(issues.length <= 0) {
           return;
       }

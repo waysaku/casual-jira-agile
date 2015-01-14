@@ -44,6 +44,24 @@
       for(var i = 0; i < avatarImgs.length; i++) {
       	avatarImgs[i].style.height = '60px';
   	    avatarImgs[i].style.width= '60px';
+
+        if(avatarImgs[i].parentNode.getElementsByClassName('avatar-assignee').length <= 0 && avatarImgs[i].getAttribute('data-tooltip')) {
+          var ele = document.createElement("div");
+          var str = document.createTextNode(avatarImgs[i].getAttribute('data-tooltip').split(':')[1]);
+          ele.appendChild(str);
+
+          ele.className = 'avatar-assignee';
+          ele.style['position'] = 'absolute';
+          ele.style['bottom'] = '0px';
+          ele.style['width'] = '100%';
+          ele.style['text-align'] = 'center';
+          ele.style['background'] = 'red';
+          ele.style['border-radius'] = '10px';
+          ele.style['font-size'] = '10px';
+          ele.style['color'] = 'white';
+          ele.style['background'] = '#24901b';
+          avatarImgs[i].parentNode.appendChild(ele);
+        }
       }
     } catch(e) {
       if(e.message != "Cannot read property 'style' of undefined") {
